@@ -1,14 +1,20 @@
 import './App.css';
-import {Switch, Route} from 'react-router-dom' 
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom' 
 
 import Home from './components/HomePage';
+import Task from './components/Task'
+import Edit from './components/Edit';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route exact path="/task" element={<Task />}/>
+          <Route exact path="/edit" element={<Edit />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
