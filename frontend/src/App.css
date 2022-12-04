@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 1rem;
 }
 
 .App-logo {
@@ -35,4 +36,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.single-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  text-align: left;
+}
+
+th {
+  background-color: #F0F8FF;
+}
+
+td {
+  background-color: #fafafa;
+}
+
+.buttons-wrap {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: medium;
+  border-radius: 15px;
+  width: 10rem;
+  border: none;
+  background-color: royalblue;
+  cursor: pointer;
+  color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #e8f4f8;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: bold;
 }
