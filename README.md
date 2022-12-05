@@ -28,6 +28,11 @@
   * [ ] edit the task’s information (including employee assigned)
     * [ ] with a validated form displaying real-time error messages 
 
+## Digital Wireframes
+![Homepage](https://user-images.githubusercontent.com/57969388/205528044-939aa72c-7952-4c1c-a719-f14bedb76b80.png)
+![Ems-wireframe](https://user-images.githubusercontent.com/57969388/205528048-6fa6f8e8-5c04-4a60-a95e-5f3e0c805494.png)
 
+## Interactive Prototype
 
+<img src= "https://user-images.githubusercontent.com/57969388/205527118-63abac60-2157-4d2b-834f-52606b7c15ae.gif" width=700>
 
