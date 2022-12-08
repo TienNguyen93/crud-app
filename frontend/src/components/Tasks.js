@@ -1,7 +1,18 @@
 import React from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom"
+import {fetchAllTasksThunk} from "../store/thunks"
+import {useState, useEffect} from "react"
 
 const Tasks = () => {
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    fetchAllTasksThunk()
+    .then(res => {
+      console.log('res', res)
+    })
+  }, [])
+
   const navigate = useNavigate()
 
   const clickEdit = () => {
