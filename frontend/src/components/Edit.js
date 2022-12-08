@@ -16,7 +16,7 @@ const Edit = () => {
     alert("Apply Changes is clicked!")
   }
 
-  console.log('level here', level)
+  // console.log('level here', level)
 
   return (
     <div className="edit-wrapper">

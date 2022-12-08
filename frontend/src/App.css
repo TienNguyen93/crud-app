@@ -142,3 +142,8 @@ form {
   padding: 8px;
   width: 21.3rem;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}
