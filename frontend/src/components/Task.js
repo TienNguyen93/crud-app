@@ -1,3 +1,39 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchTaskThunk } from "../store/thunks"
+import TaskView from "./views/TaskView";
+
+class Task extends Component {
+  componentDidMount() {
+    // getting task ID from url
+    this.props.fetchTask(this.props.match.params.id)
+  }
+
+  render() {
+    console.log('task in container', this.props.task)
+    return (
+      <TaskView task={this.props.task}/>
+    )
+  }
+}
+
+// map state to props
+const mapState = (state) => {
+  return {
+    task: state.task
+  }
+}
+
+// map dispatch to props
+const mapDispatch = (dispatch) => {
+  return {
+    fetchTask: (id) => dispatch(fetchTaskThunk(id))
+  }
+}
+
+export default connect(mapState, mapDispatch)(Task)
+
+/*
 import React from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom"
 
@@ -45,3 +81,4 @@ const Task = () => {
 }
 
 export default Task
+*/

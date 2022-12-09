@@ -1,5 +1,5 @@
 import './App.css';
-import {Routes, Route} from 'react-router-dom' 
+import {Switch, Route} from 'react-router-dom' 
 
 import Home from './components/HomePage';
 import Task from './components/Task'
@@ -9,12 +9,12 @@ import Tasks from './components/Tasks';
 const App = () => {
   return (
     <div className="App">
-        <Routes>
-          <Route exact path="/" element={<Home />}/>
-          <Route exact path="/tasks/:id" element={<Task />}/>
-          <Route exact path="/tasks" element={<Tasks />}/>
-          <Route exact path="/edit" element={<Edit />}/>
-        </Routes>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/tasks/:id" component={Task}/>
+          <Route exact path="/tasks" component={Tasks}/>
+          <Route exact path="/edit" component={Edit}/>
+        </Switch>
     </div>
   );
 }
