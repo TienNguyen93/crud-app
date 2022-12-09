@@ -1,85 +1,104 @@
-import React from "react"
-import { useState } from "react"
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const Edit = () => {
-  const [description, setDescription] = useState("")
-  const [level, setLevel] = useState("")
-  const [status, setStatus] = useState("")
-  const [assigned, setAssigned] = useState("")
+import { fetchTaskThunk, editTaskThunk } from "../store/thunks"
 
-  const levels = ["High", "Normal", "Low"]
-  const statuses = ["Complete", "Incomplete"]
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('handle submit click')
-    alert("Apply Changes is clicked!")
+class Edit extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      description: "",
+      priority_level: "",
+      // completion_status: false,
+      employeeId: null,
+      redirect: false,
+      redirectId: null
+    }
   }
 
-  // console.log('level here', level)
+  componentDidMount() {
+    //getting task ID from url
+    this.props.fetchTask(this.props.match.params.id)
+    this.setState({
+      description: this.props.task.description,
+      priority_level: this.props.task.priority_level,
+      employeeId: this.props.task.employeeId
+    })
+  }
 
-  return (
-    <div className="edit-wrapper">
-      <h1>Edit page here</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div className="input-wrapper">
-            <label className="edit-form-label">Description: </label>
-            <input
-              className="edit-field"
-              type="text"
-              placeholder="Description"
-              onChange={e => setDescription(e.target.value)}
-              required
-            />
-          </div>
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
 
-          <br />
+  handleSubmit = event => {
+    event.preventDefault()
+    //get new info for task from form input
+    let task = {
+      id: this.props.task.id,
+      description: this.state.description,
+      priority_level: this.state.priority_level,
+      employeeId: this.task.employeeId
+    }
 
-          <div className="input-wrapper">
-            <label className="edit-form-label">Priority Level:</label>
-            <select 
-              required 
-              className="edit-select" 
-              onChange={e => setLevel(e.target.value)}
-            >
-              {levels.map(level => <option key={level}>{level}</option>)}
-            </select>
-          </div>
+    this.props.editTask(task)
 
-          <br />
+    this.setState({
+      redirect: true,
+      redirectId: this.props.task.id
+    })
+  }
 
-          <div className="input-wrapper">
-            <label className="edit-form-label">Status:</label>
-            <select 
-              required 
-              className="edit-select" 
-              onChange={e => setStatus(e.target.value)}
-            >
-              {statuses.map(status => <option key={status}>{status}</option>)}
-            </select>
-          </div>
+  componentWillUnmount() {
+    this.setState({ redirect: false, redirectId: null })
+  }
 
-          <br />
+  render() {
+    //go to single task view of the edited task
+    if (this.state.redirect) {
+      return (<Redirect to={`/tasks/${this.state.redirectId}`} />)
+    }
 
-          <div className="input-wrapper">
-            <label className="edit-form-label">Assigned:</label>
-            <input
-              className="edit-field"
-              type="text"
-              placeholder="Assigned"
-              onChange={e => setAssigned(e.target.value)}
-              required
-            />
-          </div>
+    return (
+      <form onSubmit={(e) => this.handleSubmit(e)}>
+        <input
+          type="text"
+          value={this.state.description}
+          onChange={(e) => this.handleChange(e)}
+        />
+        <input
+          type="text"
+          value={this.state.priority_level}
+          onChange={(e) => this.handleChange(e)}
+        />
+        <input
+          type="text"
+          value={this.state.employeeId}
+          onChange={(e) => this.handleChange(e)}
+        />
 
-          <div className="edit-button">
-            <button>Apply changes</button>
-          </div>
-        </div>
+        <button type="submit">
+          Submit
+        </button>
       </form>
-    </div>
-  )
+    )
+  }
 }
 
-export default Edit
+// map state to props
+const mapState = (state) => {
+  return {
+    task: state.task,
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return ({
+    editTask: (task) => dispatch(editTaskThunk(task)),
+    fetchTask: (id) => dispatch(fetchTaskThunk(id)),
+  })
+}
+
+export default connect(mapState, mapDispatch)(Edit);

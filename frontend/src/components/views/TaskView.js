@@ -5,7 +5,7 @@ const TaskView = ({ task }) => {
   const navigate = useHistory()
 
   const clickEdit = () => {
-    navigate.push('/edit')
+    navigate.push(`/edittask/${task.id}`)
   }
 
   const clickDelete = () => {
