@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const TasksView = ({ tasks }) => {
-  const navigate = useNavigate()
+  const navigate = useHistory()
 
   const clickEdit = () => {
-    navigate('/edit')
+    navigate.push('/edit')
   }
 
   return (

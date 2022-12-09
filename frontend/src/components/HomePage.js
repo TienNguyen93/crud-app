@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import { Link, Navigate, useHistory } from "react-router-dom"
 
 const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useHistory()
 
   const handleClick = () => {
     console.log('all tasks clicked')
-    navigate('/tasks')
+    navigate.push('/tasks')
 
   }
   return (
