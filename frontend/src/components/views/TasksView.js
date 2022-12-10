@@ -28,6 +28,7 @@ const TasksView = ({ tasks }) => {
               <th>Description</th>
               <th>Priority Level</th>
               <th>Status</th>
+              <th>Delete Task</th>
             </tr>
             {tasks.map(task => {
               return (
@@ -42,6 +43,7 @@ const TasksView = ({ tasks }) => {
                   {task.completion_status === null
                     ? <td>Incomplete</td>
                     : <td>Complete</td>}
+                    <td><button>X</button></td>
                 </tr>
               )
             })}
@@ -49,23 +51,13 @@ const TasksView = ({ tasks }) => {
         </table>
       </div>
 
-      <div className="buttons-wrap">
-        <div>
-          <button>Delete</button>
-        </div>
-        <div className="edit">
-          <button onClick={clickEdit}>
-            Edit
-          </button>
-        </div>
-        <div>
+      <div className="buttons-wrap">    
         <Link to = {``}>
           <button>
             Back to main page 
             </button>
             </Link> 
         </div>
-      </div>
     </div>
   )
 }
