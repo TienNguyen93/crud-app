@@ -4,14 +4,23 @@ import { Link } from "react-router-dom";
 const TasksView = ({ tasks }) => {
   const navigate = useHistory()
 
+  if (!tasks.length) {
+    return (
+    <div>
+      <h2>There are no tasks.</h2>
+      </div>
+    );
+  }
+
   const clickEdit = () => {
-    navigate.push('/edit')
+    navigate.push('/editTask')
   }
 
   return (
     <div>
       <h1>Manage Task</h1>
       <div className="all-tasks">
+      <h4>Click on Task description to edit</h4>
         <table>
           <tbody>
             <tr>

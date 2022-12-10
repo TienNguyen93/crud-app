@@ -27,21 +27,21 @@ export const fetchEmployeeThunk = (id) => async (dispatch) => {
   }
 }
 
+export const deleteEmployeeThunk = employeeId => async dispatch => {
+  try {
+    await axios.delete(`${path}/employees/${employeeId}`);
+    // delete succesful so change state with dispatch
+    dispatch(ac.deleteEmployee(employeeId));
+  } catch(err) {
+    console.error(err);
+  }
+};
+
 // All tasks
 export const fetchAllTasksThunk = () => async (dispatch) => {
   try {
     let res = await axios.get(`${path}/tasks`)
     dispatch(ac.fetchAllTasks(res.data))
-  } catch(error) {
-    console.log(error)
-  }
-}
-
-// Single task
-export const fetchTaskThunk = (id) => async (dispatch) => {
-  try {
-    let res = await axios.get(`${path}/tasks/${id}`)
-    dispatch(ac.fetchTask(res.data))
   } catch(error) {
     console.log(error)
   }
@@ -57,4 +57,12 @@ export const editTaskThunk = (task) => async (dispatch) => {
   }
 }
 
-
+// Single task
+export const fetchTaskThunk = (id) => async (dispatch) => {
+  try {
+    let res = await axios.get(`${path}/tasks/${id}`)
+    dispatch(ac.fetchTask(res.data))
+  } catch(error) {
+    console.log(error)
+  }
+}

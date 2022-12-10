@@ -7,13 +7,18 @@ const Home = () => {
   const handleClick = () => {
     console.log('all tasks clicked')
     navigate.push('/tasks')
-
   }
+
+  const handleClickEmployees = () => {
+    console.log('all employees clicked')
+    navigate.push('/employees')
+  }
+
   return (
     <div>
       <h1>Employee Management System</h1>
-      <button onClick={handleClick}>View all tasks</button>
-      <button>View all employees</button>
+      <button onClick={handleClick}>View All Tasks</button>
+      <button onClick={handleClickEmployees}>View All Employees</button>
     </div>
   )
 }
