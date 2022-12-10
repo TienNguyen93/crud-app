@@ -6,6 +6,7 @@ import Tasks from './components/Tasks';
 import Employees from './components/Employees';
 import Task from './components/Task';
 import Edit from './components/Edit';
+import NewEmployee from './components/NewEmployee';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path="/tasks" component={Tasks} />
         <Route exact path="/employees" component={Employees} />
         <Route exact path="/edittask/:id" component={Edit} />
+        <Route exact path="/newemployee" component={NewEmployee} />
       </Switch>
     </div>
   );

@@ -6,7 +6,14 @@ const AllEmployeesView = ({ employees }) => {
     return (
     <div>
       <h2>There are no employees.</h2>
+      <div className="edit">
+      <Link to={`/newemployee`}>
+      <button>
+        Add
+      </button>
+      </Link>
       </div>
+    </div>
     );
   }
 
@@ -41,6 +48,22 @@ const AllEmployeesView = ({ employees }) => {
             })}
           </tbody>
         </table>
+      </div>
+      <div className="buttons-wrap">
+        <div>
+        <Link to = {``}>
+          <button>
+            Back to main page 
+            </button>
+            </Link> 
+        </div>
+        <div className="edit">
+          <Link to={`/newemployee`}>
+          <button>
+            Add
+          </button>
+          </Link>
+        </div>
       </div>
     </div>
   )

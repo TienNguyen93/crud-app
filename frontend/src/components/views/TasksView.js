@@ -58,8 +58,14 @@ const TasksView = ({ tasks }) => {
             Edit
           </button>
         </div>
+        <div>
+        <Link to = {``}>
+          <button>
+            Back to main page 
+            </button>
+            </Link> 
+        </div>
       </div>
-
     </div>
   )
 }
