@@ -18,7 +18,7 @@ class Edit extends Component {
   }
 
   componentDidMount() {
-    //getting task ID from url
+    // Getting task ID from url
     this.props.fetchTask(this.props.match.params.id)
     this.setState({
       description: this.props.task.description,

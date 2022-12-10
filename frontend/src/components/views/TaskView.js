@@ -35,7 +35,7 @@ const TaskView = ({ task }) => {
       <div className="buttons-wrap">
         <div className="edit">
           <button onClick={clickEdit}>
-            Edit
+            Edit Task
           </button>
         </div>
       </div>

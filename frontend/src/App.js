@@ -5,7 +5,7 @@ import Home from './components/HomePage';
 import Tasks from './components/Tasks';
 import Employees from './components/Employees';
 import Task from './components/Task';
-import Edit from './components/Edit';
+import EditTask from './components/EditTask';
 import NewEmployee from './components/NewEmployee';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
         <Route exact path="/tasks/:id" component={Task} />
         <Route exact path="/tasks" component={Tasks} />
         <Route exact path="/employees" component={Employees} />
-        <Route exact path="/edittask/:id" component={Edit} />
+        <Route exact path="/edittask/:id" component={EditTask} />
         <Route exact path="/newemployee" component={NewEmployee} />
       </Switch>
     </div>
