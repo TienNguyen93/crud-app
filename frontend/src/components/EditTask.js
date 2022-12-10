@@ -4,13 +4,13 @@ import { Redirect } from 'react-router-dom';
 
 import { fetchTaskThunk, editTaskThunk } from "../store/thunks"
 
-class Edit extends Component {
+class EditTask extends Component {
   constructor(props) {
     super(props)
     this.state = {
       description: "",
       priority_level: "",
-      // completion_status: false,
+      completion_status: false,
       employeeId: null,
       redirect: false,
       redirectId: null
@@ -23,6 +23,7 @@ class Edit extends Component {
     this.setState({
       description: this.props.task.description,
       priority_level: this.props.task.priority_level,
+      completion_status: this.props.task.completion_status,
       employeeId: this.props.task.employeeId
     })
   }
@@ -35,11 +36,12 @@ class Edit extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    //get new info for task from form input
+    // Get new info for task from form input
     let task = {
       id: this.props.task.id,
       description: this.state.description,
       priority_level: this.state.priority_level,
+      completion_status: this.state.completion_status,
       employeeId: this.task.employeeId
     }
 
@@ -56,33 +58,76 @@ class Edit extends Component {
   }
 
   render() {
-    //go to single task view of the edited task
+    // Go to single task view of the edited task
     if (this.state.redirect) {
       return (<Redirect to={`/tasks/${this.state.redirectId}`} />)
     }
 
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <input
-          type="text"
-          value={this.state.description}
-          onChange={(e) => this.handleChange(e)}
-        />
-        <input
-          type="text"
-          value={this.state.priority_level}
-          onChange={(e) => this.handleChange(e)}
-        />
-        <input
-          type="text"
-          value={this.state.employeeId}
-          onChange={(e) => this.handleChange(e)}
-        />
 
-        <button type="submit">
-          Submit
-        </button>
-      </form>
+      <div className="edit-wrapper">
+        <h1>Edit Employee</h1>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+          <div>
+          <div className="input-wrapper">
+            <label className="edit-form-label">Description: </label>
+            <input type="text" name="title" value={this.state.description} onChange={(e) => this.handleChange(e)} />
+            </div>
+
+            <br />
+
+          <div className="input-wrapper">
+            <label className="edit-form-label">Priority Level: </label>
+            <input type="text" name="priority_level" value={this.state.priority_level} onChange={(e) => this.handleChange(e)} />
+            </div>
+
+            <br />
+
+          <div className="input-wrapper">
+            <label className="edit-form-label">Completion Status: </label>
+            <input type="text" name="completion_status" value={this.state.completion_status} onChange={(e) => this.handleChange(e)} />
+            </div>
+
+            <br />
+
+          <div className="input-wrapper">
+            <label className="edit-form-label">Employee ID: </label>
+            <input type="text" name="employeeId" value={this.state.employeeId} onChange={(e) => this.handleChange(e)} />
+            </div>
+
+            <br />
+
+          <div className="edit-button">
+            <button type="submit">
+              Apply Changes
+            </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      // <form onSubmit={(e) => this.handleSubmit(e)}>
+      //   <input
+      //     type="text"
+      //     value={this.state.description}
+      //     onChange={(e) => this.handleChange(e)}
+      //   />
+      //   <input
+      //     type="text"
+      //     value={this.state.priority_level}
+      //     onChange={(e) => this.handleChange(e)}
+      //   />
+      //   <input
+      //     type="text"
+      //     value={this.state.employeeId}
+      //     onChange={(e) => this.handleChange(e)}
+      //   />
+
+      //   <button type="submit">
+      //     Submit
+      //   </button>
+      // </form>
+
     )
   }
 }
@@ -101,4 +146,4 @@ const mapDispatch = (dispatch) => {
   })
 }
 
-export default connect(mapState, mapDispatch)(Edit);
+export default connect(mapState, mapDispatch)(EditTask);
