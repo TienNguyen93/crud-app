@@ -8,10 +8,6 @@ const TaskView = ({ task }) => {
     navigate.push(`/edittask/${task.id}`)
   }
 
-  const clickDelete = () => {
-    alert("Delete clicked!")
-  }
-
   return (
     <div>
       <h1>Single task view</h1>
@@ -37,9 +33,6 @@ const TaskView = ({ task }) => {
         </table>
       </div>
       <div className="buttons-wrap">
-        <div>
-          <button onClick={clickDelete}>Delete</button>
-        </div>
         <div className="edit">
           <button onClick={clickEdit}>
             Edit
