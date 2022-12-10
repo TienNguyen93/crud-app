@@ -19,7 +19,7 @@ const AllEmployeesView = ({ employees }) => {
 
   return (
     <div>
-      <h1>Manage Employee</h1>
+      <h1>Manage Employees</h1>
       <div className="all-employees">
         <h4>Click on Employee First Name to edit</h4>
         <table>

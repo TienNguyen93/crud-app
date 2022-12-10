@@ -18,7 +18,7 @@ const TasksView = ({ tasks }) => {
 
   return (
     <div>
-      <h1>Manage Task</h1>
+      <h1>Manage Tasks</h1>
       <div className="all-tasks">
       <h4>Click on Task description to edit</h4>
         <table>
