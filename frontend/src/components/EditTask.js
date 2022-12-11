@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
 import { fetchTaskThunk, editTaskThunk } from "../store/thunks"
 import EditTaskView from "./views/EditTaskView";
 
@@ -41,7 +40,7 @@ class EditTask extends Component {
       employeeId: this.state.employeeId
     }
 
-    this.props.editTask(task)
+    let editedTask = await this.props.editTask(task)
 
     this.setState({
       description: this.state.description,
@@ -65,46 +64,11 @@ class EditTask extends Component {
 
     return (
 
-      <div className="edit-wrapper">
-        <h1>Edit Employee</h1>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <div>
-          <div className="input-wrapper">
-            <label className="edit-form-label">Description: </label>
-            <input type="text" name="title" value={this.state.description} onChange={(e) => this.handleChange(e)} />
-            </div>
-
-            <br />
-
-          <div className="input-wrapper">
-            <label className="edit-form-label">Priority Level: </label>
-            <input type="text" name="priority_level" value={this.state.priority_level} onChange={(e) => this.handleChange(e)} />
-            </div>
-
-            <br />
-
-          <div className="input-wrapper">
-            <label className="edit-form-label">Completion Status: </label>
-            <input type="text" name="completion_status" value={this.state.completion_status} onChange={(e) => this.handleChange(e)} />
-            </div>
-
-            <br />
-
-          <div className="input-wrapper">
-            <label className="edit-form-label">Employee ID: </label>
-            <input type="text" name="employeeId" value={this.state.employeeId} onChange={(e) => this.handleChange(e)} />
-            </div>
-
-            <br />
-
-          <div className="edit-button">
-            <button type="submit">
-              Apply Changes
-            </button>
-            </div>
-          </div>
-        </form>
-      </div>
+      <EditTaskView
+                handleChange = {this.handleChange} 
+                handleSubmit={this.handleSubmit} 
+                task={this.state}
+            />
 
       // <form onSubmit={(e) => this.handleSubmit(e)}>
       //   <input

@@ -1,5 +1,6 @@
 import React from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 const EditTaskView = (props) => {
 
@@ -51,4 +52,4 @@ const EditTaskView = (props) => {
   );
 }
 
-export default EditView
+export default EditTaskView
