@@ -34,7 +34,7 @@ class EditTask extends Component {
     })
   }
 
-  handleSubmit = async (event) => {
+  handleSubmit = event => {
     event.preventDefault()
     // Get new info for task from form input
     alert("Apply Changes is clicked!")
@@ -46,7 +46,6 @@ class EditTask extends Component {
       employeeId: this.task.employeeId
     }
     this.props.editTask(task)
-    const respond = await this.props.editTask(task)
     this.setState({
       redirect: true,
       redirectId: this.props.task.id
