@@ -37,7 +37,6 @@ class EditTask extends Component {
   handleSubmit = event => {
     event.preventDefault()
     // Get new info for task from form input
-    alert("Apply Changes is clicked!")
     let task = {
       id: this.props.task.id,
       description: this.state.description,
