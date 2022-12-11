@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { addEmployeeThunk } from '../store/thunks';
+import NewEmployeeView from './views/NewEmployeeView';
 
 class NewEmployee extends Component {
   constructor(props) {
@@ -48,8 +49,12 @@ class NewEmployee extends Component {
     let newEmployee = await this.props.addEmployee(employee)
 
     this.setState({
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      department: this.state.department,
+      employeeId: this.state.employeeId,
       redirect: true,
-      redirectId: this.props.newEmployee.id,
+      redirectId: newEmployee.id,
       error: ""
     })
     console.log(this.handleSubmit)
@@ -67,50 +72,50 @@ class NewEmployee extends Component {
 
     return (
       <div className="edit-wrapper">
-        <h1>Add New Employee</h1>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <div>
-          <div className="input-wrapper">
-            <label className="edit-form-label">First Name: </label>
-            <input type="text" name="title" value={this.state.first_name} onChange={(e) => this.handleChange(e)} />
-            </div>
-
-            <br />
-
-          <div className="input-wrapper">
-            <label className="edit-form-label">Last Name: </label>
-            <input type="text" name="priority_level" value={this.state.last_name} onChange={(e) => this.handleChange(e)} />
-            </div>
-
-            <br />
-
-
-          <div className="input-wrapper">
-            <label className="edit-form-label">Department: </label>
-            <input type="text" name="employeeId" value={this.state.department} onChange={(e) => this.handleChange(e)} />
-            </div>
-
-            <br />
-
-          <div className="edit-button">
-            <button type="submit">
-              Add 
-            </button>
-            <div className="buttons-wrap">
+      <h1>Add New Employee</h1>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         <div>
-        <Link to = {`/employees`}>
-          <button>
-            Back to Employees
-            </button>
-            </Link> 
-        </div>
-            </div>
-            </div>
+        <div className="input-wrapper">
+          <label className="edit-form-label">First Name: </label>
+          <input type="text" name="first_name" value={this.state.first_name} onChange={(e) => this.handleChange(e)} />
           </div>
-        </form>
+
+          <br />
+
+        <div className="input-wrapper">
+          <label className="edit-form-label">Last Name: </label>
+          <input type="text" name="last_name" value={this.state.last_name} onChange={(e) => this.handleChange(e)} />
+          </div>
+
+          <br />
+
+
+        <div className="input-wrapper">
+          <label className="edit-form-label">Department: </label>
+          <input type="text" name="department" value={this.state.department} onChange={(e) => this.handleChange(e)} />
+          </div>
+
+          <br />
+
+        <div className="edit-button">
+          <button type="submit">
+            Add 
+          </button>
+          <div className="buttons-wrap">
+      <div>
+      <Link to = {`/employees`}>
+        <button>
+          Back to Employees
+          </button>
+          </Link> 
       </div>
-    )
-  }
+          </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  )
+}
 }
 
 const mapDispatch = (dispatch) => {
