@@ -1,17 +1,19 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Link } from "react-router-dom";
+
 import { fetchTaskThunk, editTaskThunk } from "../store/thunks"
+import EditTaskView from "./views/EditTaskView";
 
 class EditTask extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      description: "",
-      priority_level: "",
-      completion_status: false,
-      employeeId: null,
+      id: this.props.task.id,
+      description: this.props.task.description,
+      priority_level: this.props.task.priority_level,
+      completion_status: this.props.task.completion_status,
+      employeeId: this.props.task.employeeId,
       redirect: false,
       redirectId: null
     }
@@ -20,12 +22,6 @@ class EditTask extends Component {
   componentDidMount() {
     // Getting task ID from url
     this.props.fetchTask(this.props.match.params.id)
-    this.setState({
-      description: this.props.task.description,
-      priority_level: this.props.task.priority_level,
-      completion_status: this.props.task.completion_status,
-      employeeId: this.props.task.employeeId
-    })
   }
 
   handleChange = event => {
@@ -34,20 +30,26 @@ class EditTask extends Component {
     })
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault()
     // Get new info for task from form input
     let task = {
-      id: this.props.task.id,
+      id: this.state.id,
       description: this.state.description,
       priority_level: this.state.priority_level,
       completion_status: this.state.completion_status,
-      employeeId: this.task.employeeId
+      employeeId: this.state.employeeId
     }
+
     this.props.editTask(task)
+
     this.setState({
+      description: this.state.description,
+      priority_level: this.state.priority_level,
+      completion_status: this.state.completion_status,
+      employeeId: null,
       redirect: true,
-      redirectId: this.props.task.id
+      redirectId: task.id
     })
   }
 
@@ -99,15 +101,6 @@ class EditTask extends Component {
             <button type="submit">
               Apply Changes
             </button>
-            <div className="buttons-wrap">
-        <div>
-        <Link to = {`/tasks`}>
-          <button>
-            Back to Tasks
-            </button>
-            </Link> 
-        </div>
-            </div>
             </div>
           </div>
         </form>
