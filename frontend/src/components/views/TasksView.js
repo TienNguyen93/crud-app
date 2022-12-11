@@ -6,8 +6,8 @@ const TasksView = ({ tasks }) => {
 
   if (!tasks.length) {
     return (
-    <div>
-      <h2>There are no tasks.</h2>
+      <div>
+        <h2>There are no tasks.</h2>
       </div>
     );
   }
@@ -20,7 +20,7 @@ const TasksView = ({ tasks }) => {
     <div>
       <h1>Manage Tasks</h1>
       <div className="all-tasks">
-      <h4>Click on Task description to edit</h4>
+        <h4>Click on Task description to edit</h4>
         <table>
           <tbody>
             <tr>
@@ -40,10 +40,8 @@ const TasksView = ({ tasks }) => {
                     </Link>
                   </td>
                   <td>{task.priority_level}</td>
-                  {task.completion_status === null
-                    ? <td>Incomplete</td>
-                    : <td>Complete</td>}
-                    <td><button>X</button></td>
+                  <td>{task.completion_status}</td>
+                  <td><button>X</button></td>
                 </tr>
               )
             })}
@@ -51,13 +49,13 @@ const TasksView = ({ tasks }) => {
         </table>
       </div>
 
-      <div className="buttons-wrap">    
-        <Link to = {``}>
+      <div className="buttons-wrap">
+        <Link to={``}>
           <button>
-            Back to main page 
-            </button>
-            </Link> 
-        </div>
+            Back to main page
+          </button>
+        </Link>
+      </div>
     </div>
   )
 }
