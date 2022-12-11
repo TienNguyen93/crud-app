@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const AllEmployeesView = ({ employees }) => {
 
   if (!employees.length) {
+    
     return (
     <div>
       <h2>There are no employees.</h2>
