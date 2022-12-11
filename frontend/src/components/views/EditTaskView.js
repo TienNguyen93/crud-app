@@ -12,7 +12,7 @@ const EditTaskView = (props) => {
         <div>
           <div className="input-wrapper">
             <label className="edit-form-label">Description: </label>
-            <input type="text" name="title" value={task.description} onChange={(e) => handleChange(e)} />
+            <input type="text" name="description" value={task.description} onChange={(e) => handleChange(e)} />
           </div>
           <br />
 
@@ -35,11 +35,11 @@ const EditTaskView = (props) => {
           <br />
 
           <div className="edit-button">
-          <Link to = {`/tasks`}>
-          <button>
-            Back to All Tasks
-            </button>
-            </Link> 
+            <Link to={`/tasks`}>
+              <button>
+                Back to All Tasks
+              </button>
+            </Link>
             <button type="submit">
               Apply Changes
             </button>

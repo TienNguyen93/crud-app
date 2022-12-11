@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const TaskView = ({ task }) => {
   const navigate = useHistory()
@@ -23,10 +24,7 @@ const TaskView = ({ task }) => {
             <tr>
               <td>{task.description}</td>
               <td>{task.priority_level}</td>
-              {task.completion_status === null
-                ? <td>Incomplete</td>
-                : <td>Complete</td>
-              }
+              <td>{task.completion_status}</td>
               <td>{task.employee.first_name + " " + task.employee.last_name}</td>
             </tr>
           </tbody>
@@ -34,6 +32,11 @@ const TaskView = ({ task }) => {
       </div>
       <div className="buttons-wrap">
         <div className="edit">
+          <Link to={`/tasks`}>
+            <button>
+              Back to All Tasks
+            </button>
+          </Link>
           <button onClick={clickEdit}>
             Edit Task
           </button>
