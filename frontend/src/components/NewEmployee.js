@@ -1,29 +1,28 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { addEmployeeThunk } from '../store/thunks';
 
-import { fetchTaskThunk, editTaskThunk } from "../store/thunks"
-
-class Edit extends Component {
+class NewEmployee extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      description: "",
-      priority_level: "",
-      // completion_status: false,
+      first_name: "",
+      last_name: "",
+      department: "",
       employeeId: null,
       redirect: false,
-      redirectId: null
+      redirectId: null,
+      error: ""
     }
   }
-
+  
   componentDidMount() {
-    //getting task ID from url
-    this.props.fetchTask(this.props.match.params.id)
     this.setState({
-      description: this.props.task.description,
-      priority_level: this.props.task.priority_level,
-      employeeId: this.props.task.employeeId
+      first_name: this.props.first_name,
+      last_name: this.props.last_name,
+      department: this.props.department
     })
   }
 
@@ -33,22 +32,27 @@ class Edit extends Component {
     })
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault()
-    //get new info for task from form input
-    let task = {
-      id: this.props.task.id,
-      description: this.state.description,
-      priority_level: this.state.priority_level,
-      employeeId: this.task.employeeId
+    if ( this.state.title === ""){
+      this.setState({error: "field is required"});
+      return
+    }
+    let employee = {
+      employeeId: this.state.employeeId,
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      department: this.state.department
     }
 
-    this.props.editTask(task)
+    let newEmployee = await this.props.addEmployee(employee)
 
     this.setState({
       redirect: true,
-      redirectId: this.props.task.id
+      redirectId: this.props.newEmployee.id,
+      error: ""
     })
+    console.log(this.handleSubmit)
   }
 
   componentWillUnmount() {
@@ -58,47 +62,61 @@ class Edit extends Component {
   render() {
     //go to single task view of the edited task
     if (this.state.redirect) {
-      return (<Redirect to={`/tasks/${this.state.redirectId}`} />)
+      return (<Redirect to={`/employees`} />)
     }
 
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <input
-          type="text"
-          value={this.state.description}
-          onChange={(e) => this.handleChange(e)}
-        />
-        <input
-          type="text"
-          value={this.state.priority_level}
-          onChange={(e) => this.handleChange(e)}
-        />
-        <input
-          type="text"
-          value={this.state.employeeId}
-          onChange={(e) => this.handleChange(e)}
-        />
+      <div className="edit-wrapper">
+        <h1>Add New Employee</h1>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+          <div>
+          <div className="input-wrapper">
+            <label className="edit-form-label">First Name: </label>
+            <input type="text" name="title" value={this.state.first_name} onChange={(e) => this.handleChange(e)} />
+            </div>
 
-        <button type="submit">
-          Submit
-        </button>
-      </form>
+            <br />
+
+          <div className="input-wrapper">
+            <label className="edit-form-label">Last Name: </label>
+            <input type="text" name="priority_level" value={this.state.last_name} onChange={(e) => this.handleChange(e)} />
+            </div>
+
+            <br />
+
+
+          <div className="input-wrapper">
+            <label className="edit-form-label">Department: </label>
+            <input type="text" name="employeeId" value={this.state.department} onChange={(e) => this.handleChange(e)} />
+            </div>
+
+            <br />
+
+          <div className="edit-button">
+            <button type="submit">
+              Add 
+            </button>
+            <div className="buttons-wrap">
+        <div>
+        <Link to = {`/employees`}>
+          <button>
+            Back to Employees
+            </button>
+            </Link> 
+        </div>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
     )
   }
 }
 
-// map state to props
-const mapState = (state) => {
-  return {
-    task: state.task,
-  };
-};
-
 const mapDispatch = (dispatch) => {
   return ({
-    editTask: (task) => dispatch(editTaskThunk(task)),
-    fetchTask: (id) => dispatch(fetchTaskThunk(id)),
+  addEmployee: (employee) => dispatch(addEmployeeThunk(employee))
   })
 }
 
-export default connect(mapState, mapDispatch)(Edit);
+export default connect(null, mapDispatch)(NewEmployee);

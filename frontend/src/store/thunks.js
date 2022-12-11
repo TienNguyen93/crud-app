@@ -16,7 +16,16 @@ export const fetchAllEmployeesThunk = () => async (dispatch) => {
     console.log(error)
   }
 }
-
+// Add new employee
+export const addEmployeeThunk = (employee) => async (dispatch) => {
+  try {
+    let res = await axios.post(`${path}/employees`, employee);
+    dispatch(ac.addEmployee(res.data));
+    return res.data;
+  } catch(err) {
+    console.error(err);
+  }
+};
 // Single employee
 export const fetchEmployeeThunk = (id) => async (dispatch) => {
   try {
