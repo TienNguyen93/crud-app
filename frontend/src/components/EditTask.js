@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 import { fetchTaskThunk, editTaskThunk } from "../store/thunks"
 
 class EditTask extends Component {
@@ -34,9 +34,10 @@ class EditTask extends Component {
     })
   }
 
-  handleSubmit = event => {
+  handleSubmit = async (event) => {
     event.preventDefault()
     // Get new info for task from form input
+    alert("Apply Changes is clicked!")
     let task = {
       id: this.props.task.id,
       description: this.state.description,
@@ -44,9 +45,8 @@ class EditTask extends Component {
       completion_status: this.state.completion_status,
       employeeId: this.task.employeeId
     }
-
     this.props.editTask(task)
-
+    const respond = await this.props.editTask(task)
     this.setState({
       redirect: true,
       redirectId: this.props.task.id
@@ -101,6 +101,15 @@ class EditTask extends Component {
             <button type="submit">
               Apply Changes
             </button>
+            <div className="buttons-wrap">
+        <div>
+        <Link to = {`/tasks`}>
+          <button>
+            Back to Tasks
+            </button>
+            </Link> 
+        </div>
+            </div>
             </div>
           </div>
         </form>
