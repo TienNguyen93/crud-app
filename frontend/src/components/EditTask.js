@@ -108,6 +108,6 @@ const mapDispatch = (dispatch) => {
     editTask: (task) => dispatch(editTaskThunk(task)),
     fetchTask: (id) => dispatch(fetchTaskThunk(id)),
   })
-}
+};
 
 export default connect(mapState, mapDispatch)(EditTask);
