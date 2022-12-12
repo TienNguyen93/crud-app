@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchEmployeeThunk } from "../store/thunks"
-import EmployeeView from "./views/TaskView";
+import EmployeeView from "./views/EmployeeView";
 
 class Employee extends Component {
   componentDidMount() {
@@ -20,7 +20,7 @@ class Employee extends Component {
 // map state to props
 const mapState = (state) => {
   return {
-    employee: employee.task
+    employee: state.employee
   }
 }
 
