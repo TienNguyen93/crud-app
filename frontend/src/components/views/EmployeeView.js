@@ -12,21 +12,21 @@ const EmployeeView = ({ employee }) => {
   return (
     <div>
       <h1>Single employee view</h1>
-      <div className="single-employee">
+      <div className="single-task">
         <table>
           <tbody>
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Department</th>
-          
             </tr>
+
             <tr>
               <td>{employee.first_name}</td>
               <td>{employee.last_name}</td>
               <td>{employee.department}</td>
-            
             </tr>
+            
           </tbody>
         </table>
       </div>
