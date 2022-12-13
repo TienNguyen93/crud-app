@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const EditTaskView = (props) => {
 
-  const { task, handleChange, handleSubmit } = props
+  const { task, error, handleChange, handleSubmit } = props
 
   return (
     <div className="edit-wrapper">
@@ -48,6 +48,7 @@ const EditTaskView = (props) => {
 
         </div>
       </form>
+      {error !== "" && <p>{error}</p>}
     </div>
   );
 }
