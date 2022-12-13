@@ -26,7 +26,7 @@
   * [ ] navigate to single employee view of the employee assigned the task
   * [ ] delete the task 
   * [x] edit the task’s information (including employee assigned)
-    * [ ] with a validated form displaying real-time error messages 
+    * [x] with a validated form displaying real-time error messages 
 
 ## Digital Wireframes
 ![Homepage](https://user-images.githubusercontent.com/57969388/205528044-939aa72c-7952-4c1c-a719-f14bedb76b80.png)
