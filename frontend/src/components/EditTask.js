@@ -69,29 +69,6 @@ class EditTask extends Component {
                 handleSubmit={this.handleSubmit} 
                 task={this.state}
             />
-
-      // <form onSubmit={(e) => this.handleSubmit(e)}>
-      //   <input
-      //     type="text"
-      //     value={this.state.description}
-      //     onChange={(e) => this.handleChange(e)}
-      //   />
-      //   <input
-      //     type="text"
-      //     value={this.state.priority_level}
-      //     onChange={(e) => this.handleChange(e)}
-      //   />
-      //   <input
-      //     type="text"
-      //     value={this.state.employeeId}
-      //     onChange={(e) => this.handleChange(e)}
-      //   />
-
-      //   <button type="submit">
-      //     Submit
-      //   </button>
-      // </form>
-
     )
   }
 }
