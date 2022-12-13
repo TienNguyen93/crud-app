@@ -1,5 +1,10 @@
 # Employee Management System
 
+## Table of Contents
+1. [Product Spec](#Product-Spec)
+1. [Assignment 3 Demo](#Assignment-3)
+1. [Wireframes](#Wireframes)
+
 ## Product Spec
 
 ### User Stories 
@@ -27,6 +32,10 @@
   * [ ] delete the task 
   * [x] edit the task’s information (including employee assigned)
     * [x] with a validated form displaying real-time error messages 
+    
+## Assignment 3 Demo
+
+https://user-images.githubusercontent.com/57969388/207213263-ee498370-1e2c-4d2d-8454-9e9d842a1188.mov
 
 ## Digital Wireframes
 ![Homepage](https://user-images.githubusercontent.com/57969388/205528044-939aa72c-7952-4c1c-a719-f14bedb76b80.png)
