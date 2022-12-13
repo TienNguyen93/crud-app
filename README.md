@@ -2,7 +2,7 @@
 
 ## Table of Contents
 1. [Product Spec](#Product-Spec)
-1. [Assignment 3 Demo](#Assignment-3)
+1. [Assignment 3 Demo](#Assignment-3-Demo)
 1. [Wireframes](#Wireframes)
 
 ## Product Spec
@@ -37,7 +37,7 @@
 
 https://user-images.githubusercontent.com/57969388/207213263-ee498370-1e2c-4d2d-8454-9e9d842a1188.mov
 
-## Digital Wireframes
+## Wireframes
 ![Homepage](https://user-images.githubusercontent.com/57969388/205528044-939aa72c-7952-4c1c-a719-f14bedb76b80.png)
 ![Ems-wireframe](https://user-images.githubusercontent.com/57969388/205528048-6fa6f8e8-5c04-4a60-a95e-5f3e0c805494.png)
 
