@@ -25,7 +25,11 @@ const TaskView = ({ task }) => {
               <td>{task.description}</td>
               <td>{task.priority_level}</td>
               <td>{task.completion_status}</td>
-              <td>{task.employee.first_name + " " + task.employee.last_name}</td>
+              { // Displays “Unassigned” if the task is not assigned to an employee
+              task.employee.first_name !== null && task.employee.last_name !== null 
+                ?<td>{task.employee.first_name + " " + task.employee.last_name}</td> 
+                :<td>Unassigned</td>
+              }
             </tr>
           </tbody>
         </table>
