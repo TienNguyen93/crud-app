@@ -13,25 +13,57 @@ const EditTaskView = (props) => {
         <div>
           <div className="input-wrapper">
             <label className="edit-form-label">Description: </label>
-            <input type="text" name="description" value={task.description} onChange={(e) => handleChange(e)} />
+            <input
+              type="text"
+              name="description"
+              required
+              minLength={5}
+              maxLength={30}
+              value={task.description}
+              onChange={(e) => handleChange(e)} />
           </div>
           <br />
 
           <div className="input-wrapper">
             <label className="edit-form-label">Priority Level: </label>
-            <input type="text" name="priority_level" value={task.priority_level} onChange={(e) => handleChange(e)} />
+            <input
+              type="text"
+              name="priority_level"
+              required="required"
+              value={task.priority_level}
+              minLength={5}
+              maxLength={20}
+              onChange={(e) => handleChange(e)} />
           </div>
           <br />
 
           <div className="input-wrapper">
             <label className="edit-form-label">Completion Status: </label>
-            <input type="text" name="completion_status" value={task.completion_status} onChange={(e) => handleChange(e)} />
+            <input
+              type="text"
+              name="completion_status"
+              required
+              value={task.completion_status}
+              minLength={5}
+              maxLength={20}
+              onChange={(e) => handleChange(e)} />
           </div>
           <br />
 
           <div className="input-wrapper">
             <label className="edit-form-label">Employee ID: </label>
-            <input type="text" name="employeeId" value={task.employeeId} onChange={(e) => handleChange(e)} />
+            <input
+              type="text"
+              name="employeeId"
+              required
+              value={task.employeeId}
+              onChange={(e) => handleChange(e)}
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+            />
           </div>
           <br />
 
@@ -45,7 +77,6 @@ const EditTaskView = (props) => {
               Apply Changes
             </button>
           </div>
-
         </div>
       </form>
       {error !== "" && <p>{error}</p>}

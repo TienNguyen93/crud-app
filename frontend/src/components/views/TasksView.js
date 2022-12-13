@@ -32,7 +32,7 @@ const TasksView = ({ tasks }) => {
             </tr>
             {tasks.map(task => {
               return (
-                <tr key={task}>
+                <tr key={task.id}>
                   <td>{task.id}</td>
                   <td>
                     <Link className="link" to={`/tasks/${task.id}`}>
