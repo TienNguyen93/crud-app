@@ -22,7 +22,7 @@
 
 * [x] can navigate to any single task’s view, and
   * [x] see details about a single task, including the employee assigned
-  * [ ] should display “Unassigned” if the task is not assigned to an employee
+  * [x] should display “Unassigned” if the task is not assigned to an employee
   * [ ] navigate to single employee view of the employee assigned the task
   * [ ] delete the task 
   * [x] edit the task’s information (including employee assigned)
