@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const EditTaskView = (props) => {
 
-  const { task, handleChange, handleSubmit } = props
+  const { task, error, handleChange, handleSubmit } = props
 
   return (
     <div className="edit-wrapper">
@@ -13,45 +13,57 @@ const EditTaskView = (props) => {
         <div>
           <div className="input-wrapper">
             <label className="edit-form-label">Description: </label>
-            <input 
-              type="text" 
-              name="description" 
+            <input
+              type="text"
+              name="description"
               required
-              value={task.description} 
+              minLength={5}
+              maxLength={30}
+              value={task.description}
               onChange={(e) => handleChange(e)} />
           </div>
           <br />
 
           <div className="input-wrapper">
             <label className="edit-form-label">Priority Level: </label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="priority_level"
-              required 
-              value={task.priority_level} 
+              required="required"
+              value={task.priority_level}
+              minLength={5}
+              maxLength={20}
               onChange={(e) => handleChange(e)} />
           </div>
           <br />
 
           <div className="input-wrapper">
             <label className="edit-form-label">Completion Status: </label>
-            <input 
-              type="text" 
-              name="completion_status" 
+            <input
+              type="text"
+              name="completion_status"
               required
-              value={task.completion_status} 
+              value={task.completion_status}
+              minLength={5}
+              maxLength={20}
               onChange={(e) => handleChange(e)} />
           </div>
           <br />
 
           <div className="input-wrapper">
             <label className="edit-form-label">Employee ID: </label>
-            <input 
-              type="text" 
-              name="employeeId" 
+            <input
+              type="text"
+              name="employeeId"
               required
-              value={task.employeeId} 
-              onChange={(e) => handleChange(e)} />
+              value={task.employeeId}
+              onChange={(e) => handleChange(e)}
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+            />
           </div>
           <br />
 
@@ -65,9 +77,9 @@ const EditTaskView = (props) => {
               Apply Changes
             </button>
           </div>
-
         </div>
       </form>
+      {error !== "" && <p>{error}</p>}
     </div>
   );
 }

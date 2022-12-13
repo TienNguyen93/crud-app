@@ -14,7 +14,8 @@ class EditTask extends Component {
       completion_status: this.props.task.completion_status,
       employeeId: this.props.task.employeeId,
       redirect: false,
-      redirectId: null
+      redirectId: null,
+      error: ""
     }
   }
 
@@ -32,6 +33,11 @@ class EditTask extends Component {
   handleSubmit = async event => {
     event.preventDefault()
     // Get new info for task from form input
+    if (this.state.description === "") {
+      this.setState({ error: "Description field is required" });
+      return;
+    }
+
     let task = {
       id: this.state.id,
       description: this.state.description,
@@ -48,7 +54,8 @@ class EditTask extends Component {
       completion_status: this.state.completion_status,
       employeeId: null,
       redirect: true,
-      redirectId: task.id
+      redirectId: task.id,
+      error: ""
     })
   }
 
@@ -65,10 +72,11 @@ class EditTask extends Component {
     return (
 
       <EditTaskView
-                handleChange = {this.handleChange} 
-                handleSubmit={this.handleSubmit} 
-                task={this.state}
-            />
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        error={this.state.error}
+        task={this.state}
+      />
     )
   }
 }
