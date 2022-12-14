@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { fetchAllEmployeesThunk } from "../store/thunks"
+import { fetchAllEmployeesThunk, deleteEmployeeThunk } from "../store/thunks"
 import AllEmployeesView from "./views/AllEmployeesView";
 
 class Employees extends Component {
@@ -12,7 +12,9 @@ class Employees extends Component {
   render() {
     return (
       <div>
-        <AllEmployeesView employees={this.props.allEmployees} />
+        <AllEmployeesView 
+        employees={this.props.allEmployees}
+        deleteEmployee = {this.props.deleteEmployee} />
       </div>
     );
   }
@@ -29,6 +31,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllEmployees: () => dispatch(fetchAllEmployeesThunk()),
+    deleteEmployee: (employeeId) => dispatch(deleteEmployeeThunk(employeeId)),
   };
 };
 

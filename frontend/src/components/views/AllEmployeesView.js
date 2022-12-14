@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const AllEmployeesView = ({ employees }) => {
+const AllEmployeesView = ({ employees,deleteEmployee }) => {
 
   if (!employees.length) {
     
@@ -43,7 +43,7 @@ const AllEmployeesView = ({ employees }) => {
                   </td>
                   <td>{employee.last_name}</td>
                   <td>{employee.department}</td>
-                  <td><button>X</button></td>
+                  <td><button onClick={() => deleteEmployee(employee.id)}>X</button></td>
                 </tr>
               )
             })}
