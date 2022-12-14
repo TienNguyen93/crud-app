@@ -65,55 +65,17 @@ class NewEmployee extends Component {
   }
 
   render() {
-    //go to single task view of the edited task
+    
     if (this.state.redirect) {
       return (<Redirect to={`/employees`} />)
     }
 
-    return (
-      <div className="edit-wrapper">
-      <h1>Add New Employee</h1>
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <div>
-        <div className="input-wrapper">
-          <label className="edit-form-label">First Name: </label>
-          <input type="text" name="first_name" value={this.state.first_name} onChange={(e) => this.handleChange(e)} />
-          </div>
-
-          <br />
-
-        <div className="input-wrapper">
-          <label className="edit-form-label">Last Name: </label>
-          <input type="text" name="last_name" value={this.state.last_name} onChange={(e) => this.handleChange(e)} />
-          </div>
-
-          <br />
-
-
-        <div className="input-wrapper">
-          <label className="edit-form-label">Department: </label>
-          <input type="text" name="department" value={this.state.department} onChange={(e) => this.handleChange(e)} />
-          </div>
-
-          <br />
-
-        <div className="edit-button">
-          <button type="submit">
-            Add 
-          </button>
-          <div className="buttons-wrap">
-      <div>
-      <Link to = {`/employees`}>
-        <button>
-          Back to Employees
-          </button>
-          </Link> 
-      </div>
-          </div>
-          </div>
-        </div>
-      </form>
-    </div>
+    return (     
+      <NewEmployeeView
+      handleChange={this.handleChange}
+      handleSubmit={this.handleSubmit}
+      error={this.state.error}
+    />
   )
 }
 }
