@@ -2,8 +2,9 @@
 
 ## Table of Contents
 1. [Product Spec](#Product-Spec)
-1. [Assignment 3 Demo](#Assignment-3-Demo)
-1. [Wireframes](#Wireframes)
+2. [API Endpoints](#API-Endpoints)
+3. [Assignment 3 Demo](#Assignment-3-Demo)
+4. [Wireframes](#Wireframes) 
 
 ## Product Spec
 
@@ -33,6 +34,16 @@
   * [x] edit the task’s information (including employee assigned)
     * [x] with a validated form displaying real-time error messages 
     
+## API Endpoints
+ | HTTP Verb | Endpoint | Description |
+ | :----------|:----------|:------------ |
+ |`GET` |/employees | query all employees |
+ |`GET` |/employees/:id | query employee by id |
+ |`POST` |/newemployee | add new employee |
+ |`GET` |/tasks | query all tasks |
+ |`GET` |/tasks/:id | query task by id |
+ |`PUT` |/edittask/:id | update task information by id |
+     
 ## Assignment 3 Demo
 
 https://user-images.githubusercontent.com/57969388/207213263-ee498370-1e2c-4d2d-8454-9e9d842a1188.mov
