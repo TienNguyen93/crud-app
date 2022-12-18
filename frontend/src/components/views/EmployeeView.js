@@ -12,8 +12,8 @@ const EmployeeView = ({ employee }) => {
   return (
     <div>
       <NavBar />
-      <h1 style={{ textAlign: 'center' }}>Single employee view</h1>
 
+      <h1 style={{ textAlign: 'center' }}>Single employee view</h1>
       <div className="single-task">
         <table>
           <tbody>
@@ -32,34 +32,31 @@ const EmployeeView = ({ employee }) => {
         </table>
       </div>
 
-      <div >
-        <h1 style={{ textAlign: 'center' }}> Tasks</h1>
-        <div className="single-task">
-          <table>
-            <tbody>
+      <h1 style={{ textAlign: 'center' }}>Tasks</h1>
+      <div className="single-task">
+        <table>
+          <tbody>
+            <tr>
+              <th>Task Description</th>
+              <th>Priority Level</th>
+              <th>Status</th>
+            </tr>
 
-              <tr>
-                <th>Task Description</th>
-                <th>Priority Level</th>
-                <th>Status</th>
-              </tr>
-
-              {employee.tasks.map(task => {
-                return (
-                  <tr key={task.id}>
-                    <td>
-                      <Link className="link" to={`/tasks/${task.id}`}>
-                        {task.description}
-                      </Link>
-                    </td>
-                    <td>{task.priority_level}</td>
-                    <td>{task.completion_status}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
+            {employee.tasks.map(task => {
+              return (
+                <tr key={task.id}>
+                  <td>
+                    <Link className="link" to={`/tasks/${task.id}`}>
+                      {task.description}
+                    </Link>
+                  </td>
+                  <td>{task.priority_level}</td>
+                  <td>{task.completion_status}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
       </div>
 
       <div className="buttons-wrap">
