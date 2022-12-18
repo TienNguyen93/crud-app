@@ -11,5 +11,6 @@ export const FETCH_ALL_TASKS = "FETCH_ALL_TASKS";
 export const DELETE_EMPLOYEE = "DELETE_EMPLOYEE";
 export const EDIT_TASK = "EDIT_TASK";
 export const ADD_EMPLOYEE = "ADD_EMPLOYEE"
-// Single employee
-export const FETCH_TASK = "FETCH_TASK";
+// all Tasks
+export const FETCH_TASK = "FETCH_TASK"
+export const DELETE_TASK = "DELETE_TASK"

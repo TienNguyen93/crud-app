@@ -11,6 +11,8 @@ const allTasks = (state = [], action) => {
           task.id === action.payload.id ? action.payload : task
         )
       })
+    case at.DELETE_TASK:
+      return state.filter(task => task.id!==action.payload)
     default:
       return state
   }
