@@ -2,12 +2,15 @@ import React from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import NewEmployee from "../NewEmployee";
+import NavBar from "../NavBar";
 
 const NewEmployeeView = (props) => {
 
   const { error, handleChange, handleSubmit } = props
 
   return (
+    <div>
+      <NavBar />
     <div className="edit-wrapper">
       <h1>Add New Employee</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -34,22 +37,15 @@ const NewEmployeeView = (props) => {
 
           <br />
 
-          <div className="edit-button">
-            <button type="submit">
-              Add
-            </button>
-            <div className="buttons-wrap">
-              <div>
-                <Link to={`/employees`}>
-                  <button>
-                    Back to Employees
-                  </button>
-                </Link>
-              </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <button type="submit">
+                Submit
+              </button>
             </div>
-          </div>
+
         </div>
       </form>
+    </div>
     </div>
   )
 }
