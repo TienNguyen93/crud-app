@@ -22,7 +22,7 @@ const TasksView = ({ tasks, deleteTask }) => {
         <div className="header">
           <h1>Manage Tasks</h1>
           <div className="notice">
-            <h4>Click on Task description to edit?</h4>
+            <h4>Click on Task description to edit</h4>
           </div>
         </div>
         <div>
@@ -33,7 +33,7 @@ const TasksView = ({ tasks, deleteTask }) => {
                 <th>Description</th>
                 <th>Priority Level</th>
                 <th>Status</th>
-                <th>Delete Task</th>
+                <th>Actions</th>
               </tr>
               {tasks.map(task => {
                 return (
@@ -69,11 +69,6 @@ const TasksView = ({ tasks, deleteTask }) => {
       </div>
 
       <div className="buttons-wrap">
-        <Link to={``}>
-          <button>
-            Back to main page
-          </button>
-        </Link>
         <Link to={`/newtask`}>
           <button>
             Add New Task
