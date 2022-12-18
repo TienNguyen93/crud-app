@@ -57,7 +57,6 @@ class NewEmployee extends Component {
       redirectId: newEmployee.id,
       error: ""
     })
-    console.log(this.handleSubmit)
   }
 
   componentWillUnmount() {
