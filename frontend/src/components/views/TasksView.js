@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const TasksView = ({ tasks }) => {
+const TasksView = ({ tasks, deleteTask }) => {
   const navigate = useHistory()
 
   if (!tasks.length) {
@@ -41,7 +41,7 @@ const TasksView = ({ tasks }) => {
                   </td>
                   <td>{task.priority_level}</td>
                   <td>{task.completion_status}</td>
-                  <td><button>X</button></td>
+                  <td><button onClick={() => deleteTask(task.id)}>X</button></td>
                 </tr>
               )
             })}

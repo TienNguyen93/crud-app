@@ -19,6 +19,7 @@ export const addEmployee = (employee) => {
     payload: employee,
   };
 };
+// Delete Employee
 export const deleteEmployee = (employeeId) => {
   return {
     type: at.DELETE_EMPLOYEE,
@@ -57,3 +58,10 @@ export const editTask = (task) => {
     payload: task
   }
 }
+// Delete Task
+export const deleteTask = (taskId) => {
+  return {
+    type: at.DELETE_TASK,
+    payload: taskId
+  };
+};
