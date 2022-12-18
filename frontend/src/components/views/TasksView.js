@@ -2,7 +2,9 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
 
-const TasksView = ({ tasks }) => {
+
+const TasksView = ({ tasks, deleteTask }) => {
+  const navigate = useHistory()
 
   if (!tasks.length) {
     return (
@@ -45,6 +47,7 @@ const TasksView = ({ tasks }) => {
                     <td>{task.completion_status}</td>
                     <td>
                       <button
+                        onClick={() => deleteTask(task.id)}
                         style={{ backgroundColor: 'red', width: '5rem' }}>
                         X
                       </button>
@@ -62,7 +65,6 @@ const TasksView = ({ tasks }) => {
             </tbody>
           </table>
         </div>
-
       </div>
 
       <div className="buttons-wrap">
