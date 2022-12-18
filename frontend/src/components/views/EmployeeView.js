@@ -33,18 +33,11 @@ const EmployeeView = ({ employee }) => {
         </table>
       </div>
       <div className="buttons-wrap">
-        <div className="edit">
-          <Link to={`/employees`}>
-            <button>
-              Back to All Employees
-            </button>
-          </Link>
           <button onClick={clickEdit}>
             Edit Employee
           </button>
         </div>
       </div>
-    </div>
   )
 }
 
