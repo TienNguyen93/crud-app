@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar";
 
 const EmployeeView = ({ employee }) => {
   const navigate = useHistory()
@@ -11,7 +12,8 @@ const EmployeeView = ({ employee }) => {
 
   return (
     <div>
-      <h1>Single employee view</h1>
+      <NavBar />
+      <h1 style={{textAlign: 'center'}}>Single employee view</h1>
       <div className="single-task">
         <table>
           <tbody>

@@ -1,28 +1,34 @@
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar";
 
-const AllEmployeesView = ({ employees,deleteEmployee }) => {
+const AllEmployeesView = ({ employees, deleteEmployee }) => {
 
   if (!employees.length) {
-    
+
     return (
-    <div>
-      <h2>There are no employees.</h2>
-      <div className="edit">
-      <Link to={`/newemployee`}>
-      <button>
-        Add
-      </button>
-      </Link>
+      <div>
+        <h2>There are no employees.</h2>
+        <div className="edit">
+          <Link to={`/newemployee`}>
+            <button>
+              Add
+            </button>
+          </Link>
+        </div>
       </div>
-    </div>
     );
   }
 
   return (
     <div>
-      <h1>Manage Employees</h1>
+      <NavBar />
       <div className="all-employees">
-        <h4>Click on Employee First Name to edit</h4>
+        <div className="header">
+          <h1>Manage Employees</h1>
+          <div className="notice">
+            <h4>Click on Employee First Name to edit!</h4>
+          </div>
+        </div>
         <table>
           <tbody>
             <tr>
@@ -34,7 +40,7 @@ const AllEmployeesView = ({ employees,deleteEmployee }) => {
             </tr>
             {employees.map(employee => {
               return (
-                <tr key={employee}>
+                <tr key={employee.id}>
                   <td>{employee.id}</td>
                   <td>
                     <Link className="link" to={`/employees/${employee.id}`}>
@@ -43,7 +49,20 @@ const AllEmployeesView = ({ employees,deleteEmployee }) => {
                   </td>
                   <td>{employee.last_name}</td>
                   <td>{employee.department}</td>
-                  <td><button onClick={() => deleteEmployee(employee.id)}>X</button></td>
+                  <td>
+                    <button 
+                      style={{ backgroundColor: 'red', width: '5rem' }}
+                      onClick={() => deleteEmployee(employee.id)}>
+                      X
+                    </button>
+
+                    <Link className="link" to={`/employees/${employee.id}`}>
+                      <button
+                        style={{ backgroundColor: 'royalblue', width: '5rem' }}>
+                        Edit
+                      </button>
+                      </Link>
+                  </td>
                 </tr>
               )
             })}
@@ -52,17 +71,17 @@ const AllEmployeesView = ({ employees,deleteEmployee }) => {
       </div>
       <div className="buttons-wrap">
         <div>
-        <Link to = {``}>
-          <button>
-            Back to main page 
+          <Link to={``}>
+            <button>
+              Back to main page
             </button>
-            </Link> 
+          </Link>
         </div>
         <div className="edit">
           <Link to={`/newemployee`}>
-          <button>
-            Add
-          </button>
+            <button>
+              Add
+            </button>
           </Link>
         </div>
       </div>
