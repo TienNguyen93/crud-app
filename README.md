@@ -19,24 +19,24 @@
     * [ ] with a validated form displaying real-time error messages
 
 * [x] can navigate to any single employee’s view, and
-  * [ ] see details about a single employee, including tasks assigned (if any) 
+  * [x] see details about a single employee, including tasks assigned (if any) 
   * [ ] see an informative message if no tasks belong to that employee
-  * [ ] can navigate to single task view (see below)
-  * [ ] delete the employee 
+  * [x] can navigate to single task view (see below)
+  * [x] delete the employee 
   * [ ] edit employee information (including adding/removing tasks)
     * [ ] with a validated form displaying real-time error messages
 
 * [x] can navigate to all tasks view, and
   * [x] see a list of all tasks in the database
-  * [ ] see an informative message if no tasks exist
+  * [x] see an informative message if no tasks exist
   * [ ] add a new task
     * [ ] with a validated form displaying real-time error messages
 
 * [x] can navigate to any single task’s view, and
   * [x] see details about a single task, including the employee assigned
   * [x] should display “Unassigned” if the task is not assigned to an employee
-  * [ ] navigate to single employee view of the employee assigned the task
-  * [ ] delete the task 
+  * [x] navigate to single employee view of the employee assigned the task
+  * [x] delete the task 
   * [x] edit the task’s information (including employee assigned)
     * [x] with a validated form displaying real-time error messages 
     
