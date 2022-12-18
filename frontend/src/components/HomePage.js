@@ -15,7 +15,7 @@ const Home = () => {
   }
 
   return (
-    <div style={{textAlign: 'center'}}>
+    <div style={{textAlign: 'center', marginTop: '10rem'}}>
       <h1>Employee Management System</h1>
       <button onClick={handleClickTasks}>View All Tasks</button>
       <button onClick={handleClickEmployees}>View All Employees</button>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
+import {RiDeleteBin2Line, RiEdit2Line} from 'react-icons/ri'
 
 const AllEmployeesView = ({ employees, deleteEmployee }) => {
 
@@ -26,7 +27,7 @@ const AllEmployeesView = ({ employees, deleteEmployee }) => {
         <div className="header">
           <h1>Manage Employees</h1>
           <div className="notice">
-            <h4>Click on Employee First Name to edit!</h4>
+            <h4>Click on Employee First Name to edit?</h4>
           </div>
         </div>
         <table>
@@ -51,15 +52,15 @@ const AllEmployeesView = ({ employees, deleteEmployee }) => {
                   <td>{employee.department}</td>
                   <td>
                     <button 
-                      style={{ backgroundColor: 'red', width: '5rem' }}
+                      style={{ backgroundColor: 'red', width: '3rem', padding: '3px', borderRadius: '5px' }}
                       onClick={() => deleteEmployee(employee.id)}>
-                      X
+                      <RiDeleteBin2Line size={20}/>
                     </button>
 
                     <Link className="link" to={`/employees/${employee.id}`}>
                       <button
-                        style={{ backgroundColor: 'royalblue', width: '5rem' }}>
-                        Edit
+                        style={{ backgroundColor: 'royalblue', width: '3rem', padding: '3px', borderRadius: '5px' }}>
+                        <RiEdit2Line size={20}/>
                       </button>
                       </Link>
                   </td>

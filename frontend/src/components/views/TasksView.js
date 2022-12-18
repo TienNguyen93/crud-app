@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
+import {RiDeleteBin2Line, RiEdit2Line} from 'react-icons/ri'
 
 
 const TasksView = ({ tasks, deleteTask }) => {
@@ -21,7 +22,7 @@ const TasksView = ({ tasks, deleteTask }) => {
         <div className="header">
           <h1>Manage Tasks</h1>
           <div className="notice">
-            <h4>Click on Task description to edit!</h4>
+            <h4>Click on Task description to edit?</h4>
           </div>
         </div>
         <div>
@@ -48,14 +49,14 @@ const TasksView = ({ tasks, deleteTask }) => {
                     <td>
                       <button
                         onClick={() => deleteTask(task.id)}
-                        style={{ backgroundColor: 'red', width: '5rem' }}>
-                        X
+                        style={{ backgroundColor: 'red', width: '3rem', padding: '3px', borderRadius: '5px'}}>
+                        <RiDeleteBin2Line size={20}/>
                       </button>
                       
                       <Link className="link" to={`/tasks/${task.id}`}>
                       <button
-                        style={{ backgroundColor: 'royalblue', width: '5rem' }}>
-                        Edit
+                        style={{ backgroundColor: 'royalblue', width: '3rem', padding: '3px', borderRadius: '5px'}}>
+                        <RiEdit2Line size={20}/>
                       </button>
                       </Link>
                     </td>
@@ -71,6 +72,11 @@ const TasksView = ({ tasks, deleteTask }) => {
         <Link to={``}>
           <button>
             Back to main page
+          </button>
+        </Link>
+        <Link to={`/newtask`}>
+          <button>
+            Add New Task
           </button>
         </Link>
       </div>

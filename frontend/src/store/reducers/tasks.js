@@ -12,7 +12,9 @@ const allTasks = (state = [], action) => {
         )
       })
     case at.DELETE_TASK:
-      return state.filter(task => task.id!==action.payload)
+      return state.filter(task => task.id !== action.payload)
+    case at.ADD_TASK:
+      return [...state, action.payload]
     default:
       return state
   }
