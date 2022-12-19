@@ -29,8 +29,8 @@
 * [x] can navigate to all tasks view, and
   * [x] see a list of all tasks in the database
   * [x] see an informative message if no tasks exist
-  * [ ] add a new task
-    * [ ] with a validated form displaying real-time error messages
+  * [x] add a new task
+    * [x] with a validated form displaying real-time error messages
 
 * [x] can navigate to any single task’s view, and
   * [x] see details about a single task, including the employee assigned
