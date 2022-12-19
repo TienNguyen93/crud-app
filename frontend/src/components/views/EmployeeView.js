@@ -2,8 +2,9 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
+import {RiDeleteBin2Line} from 'react-icons/ri'
 
-const EmployeeView = ({ employee }) => {
+const EmployeeView = ({ employee, deleteTask }) => {
   const navigate = useHistory()
   const clickEdit = () => {
     navigate.push(`/editemployee/${employee.id}`)
@@ -40,6 +41,7 @@ const EmployeeView = ({ employee }) => {
               <th>Task Description</th>
               <th>Priority Level</th>
               <th>Status</th>
+              <th>Actions</th>
             </tr>
 
             {employee.tasks.map(task => {
@@ -52,6 +54,13 @@ const EmployeeView = ({ employee }) => {
                   </td>
                   <td>{task.priority_level}</td>
                   <td>{task.completion_status}</td>
+                  <td>
+                  <button
+                        onClick={() => deleteTask(task.id)}
+                        style={{ backgroundColor: 'red', width: '3rem', padding: '3px', borderRadius: '5px'}}>
+                        <RiDeleteBin2Line size={20}/>
+                      </button>
+                    </td>
                 </tr>
               )
             })}
