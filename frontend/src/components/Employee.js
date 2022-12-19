@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchEmployeeThunk } from "../store/thunks"
+import { fetchEmployeeThunk, fetchAllTasksThunk ,deleteTaskThunk } from "../store/thunks"
+//import Tasks from "./Tasks";
 import EmployeeView from "./views/EmployeeView";
 
 class Employee extends Component {
@@ -12,7 +13,9 @@ class Employee extends Component {
   render() {
     console.log('employee in container', this.props.employee)
     return (
-      <EmployeeView employee={this.props.employee}/>
+      <EmployeeView employee={this.props.employee}
+      tasks={this.props.allTasks}
+      deleteTask = {this.props.deleteTask}/>
     )
   }
 }
@@ -20,14 +23,17 @@ class Employee extends Component {
 // map state to props
 const mapState = (state) => {
   return {
-    employee: state.employee
+    employee: state.employee,
+    allTasks: state.allTasks
   }
 }
 
 // map dispatch to props
 const mapDispatch = (dispatch) => {
   return {
-    fetchEmployee: (id) => dispatch(fetchEmployeeThunk(id))
+    fetchEmployee: (id) => dispatch(fetchEmployeeThunk(id)),
+    fetchAllTasks: () => dispatch(fetchAllTasksThunk()),
+    deleteTask: (taskId) => dispatch(deleteTaskThunk(taskId)),
   }
 }
 
