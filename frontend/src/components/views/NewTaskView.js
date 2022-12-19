@@ -8,7 +8,7 @@ const NewTaskView = (props) => {
     <div>
       <NavBar />
       <div className="edit-wrapper">
-        <h1>Edit Task</h1>
+        <h1>Add New Task</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
             <div className="input-wrapper">
@@ -19,7 +19,6 @@ const NewTaskView = (props) => {
                 required
                 minLength={5}
                 maxLength={30}
-                // value={task.description}
                 onChange={(e) => handleChange(e)} />
             </div>
             <br />
@@ -30,7 +29,6 @@ const NewTaskView = (props) => {
                 type="text"
                 name="priority_level"
                 required="required"
-                // value={task.priority_level}
                 minLength={3}
                 maxLength={20}
                 onChange={(e) => handleChange(e)} />
@@ -43,27 +41,9 @@ const NewTaskView = (props) => {
                 type="text"
                 name="completion_status"
                 required
-                // value={task.completion_status}
                 minLength={5}
                 maxLength={20}
                 onChange={(e) => handleChange(e)} />
-            </div>
-            <br />
-
-            <div className="input-wrapper">
-              <label className="edit-form-label">Employee ID: </label>
-              <input
-                type="text"
-                name="employeeId"
-                required
-                // value={task.employeeId}
-                onChange={(e) => handleChange(e)}
-                onKeyPress={(event) => {
-                  if (!/[0-9]/.test(event.key)) {
-                    event.preventDefault();
-                  }
-                }}
-              />
             </div>
             <br />
 

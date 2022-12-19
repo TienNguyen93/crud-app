@@ -13,29 +13,38 @@ const TaskView = ({ task }) => {
   return (
     <div>
       <NavBar />
-      <h1 style={{textAlign: 'center'}}>Single task view</h1>
       <div className="single-task">
-        <table>
-          <tbody>
-            <tr>
-              <th>Description</th>
-              <th>Priority Level</th>
-              <th>Status</th>
-              <th>Assigned</th>
-            </tr>
-            <tr>
-              <td>{task.description}</td>
-              <td>{task.priority_level}</td>
-              <td>{task.completion_status}</td>
-              { // Displays “Unassigned” if the task is not assigned to an employee
-              task.employee.first_name !== null && task.employee.last_name !== null 
-                ?<td><Link className="link" to={`/employees/${task.employee.id}`}>
-                {task.employee.first_name + " " + task.employee.last_name}</Link></td> 
-                :<td>Unassigned</td>
-              }
-            </tr>
-          </tbody>
-        </table>
+        <div className="header">
+          <h1 style={{ textAlign: 'center' }}>Single task view</h1>
+          <div className="notice">
+            <h4>Click on Assigned Employee Name for more information?</h4>
+          </div>
+        </div>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <th>Description</th>
+                <th>Priority Level</th>
+                <th>Status</th>
+                <th>Assigned</th>
+              </tr>
+              <tr>
+                <td>{task.description}</td>
+                <td>{task.priority_level}</td>
+                <td>{task.completion_status}</td>
+                {task.employeeId !== null
+                  ? <td>
+                    <Link className="link" to={`/employees/${task.employee.id}`}>
+                      {task.employee.first_name + " " + task.employee.last_name}</Link>
+                  </td>
+                  : <td>Unassigned</td>
+                }
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
       <div className="buttons-wrap">
         <div className="edit">
