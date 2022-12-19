@@ -48,11 +48,6 @@ const TaskView = ({ task }) => {
       </div>
       <div className="buttons-wrap">
         <div className="edit">
-          <Link to={`/tasks`}>
-            <button>
-              Back to All Tasks
-            </button>
-          </Link>
           <button onClick={clickEdit}>
             Edit Task
           </button>

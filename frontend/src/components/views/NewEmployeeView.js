@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
 import NewEmployee from "../NewEmployee";
+import NavBar from "../NavBar";
 
 const NewEmployeeView = (props) => {
 
@@ -36,7 +37,6 @@ const NewEmployeeView = (props) => {
             </div>
 
             <br />
-
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <button type="submit">
                 Add
@@ -45,6 +45,7 @@ const NewEmployeeView = (props) => {
           </div>
         </form>
       </div>
+    </div>
     </div>
   )
 }
