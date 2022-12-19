@@ -6,6 +6,24 @@ import {RiDeleteBin2Line} from 'react-icons/ri'
 
 const EmployeeView = ({ employee, deleteTask }) => {
   const navigate = useHistory()
+  if(!employee.tasks.length){
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '6rem',
+        flexDirection: 'column'
+      }}>
+        <h2>Employee has no tasks</h2>
+        <Link to={`/newtask`}>
+          <button>
+            Add Task
+          </button>
+        </Link>
+      </div>
+    )
+  }
   const clickEdit = () => {
     navigate.push(`/editemployee/${employee.id}`)
   }
@@ -13,7 +31,6 @@ const EmployeeView = ({ employee, deleteTask }) => {
   return (
     <div>
       <NavBar />
-
       <h1 style={{ textAlign: 'center' }}>Single employee view</h1>
       <div className="single-task">
         <table>
@@ -32,7 +49,6 @@ const EmployeeView = ({ employee, deleteTask }) => {
           </tbody>
         </table>
       </div>
-
       <h1 style={{ textAlign: 'center' }}>Tasks</h1>
       <div className="single-task">
         <table>
@@ -43,7 +59,6 @@ const EmployeeView = ({ employee, deleteTask }) => {
               <th>Status</th>
               <th>Actions</th>
             </tr>
-
             {employee.tasks.map(task => {
               return (
                 <tr key={task.id}>
