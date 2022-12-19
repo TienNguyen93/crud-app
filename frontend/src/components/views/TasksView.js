@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
-import {RiDeleteBin2Line, RiEdit2Line} from 'react-icons/ri'
+import { RiDeleteBin2Line, RiEdit2Line } from 'react-icons/ri'
 
 
 const TasksView = ({ tasks, deleteTask }) => {
@@ -9,8 +9,19 @@ const TasksView = ({ tasks, deleteTask }) => {
 
   if (!tasks.length) {
     return (
-      <div>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '6rem',
+        flexDirection: 'column'
+      }}>
         <h2>There are no tasks.</h2>
+        <Link to={`/newtask`}>
+          <button>
+            Add Task
+          </button>
+        </Link>
       </div>
     );
   }
@@ -47,18 +58,27 @@ const TasksView = ({ tasks, deleteTask }) => {
                     <td>{task.priority_level}</td>
                     <td>{task.completion_status}</td>
                     <td>
-                      <button
-                        onClick={() => deleteTask(task.id)}
-                        style={{ backgroundColor: 'red', width: '3rem', padding: '3px', borderRadius: '5px'}}>
-                        <RiDeleteBin2Line size={20}/>
-                      </button>
-                      
-                      <Link className="link" to={`/tasks/${task.id}`}>
-                      <button
-                        style={{ backgroundColor: 'royalblue', width: '3rem', padding: '3px', borderRadius: '5px'}}>
-                        <RiEdit2Line size={20}/>
-                      </button>
-                      </Link>
+                      <div className="action-button-wrap">
+                        <button
+                          onClick={() => deleteTask(task.id)}
+                          className="delete-button"
+                        >
+                          <RiDeleteBin2Line size={20} />
+                        </button>
+
+                        <Link className="link" to={`/tasks/${task.id}`}>
+                          <button
+                            style={{ 
+                              backgroundColor: '#0818A8', 
+                              width: '3rem', 
+                              padding: '3px', 
+                              borderRadius: '5px'}}
+                            >
+                            <RiEdit2Line size={20} />
+                          </button>
+                        </Link>
+                      </div>
+
                     </td>
                   </tr>
                 )

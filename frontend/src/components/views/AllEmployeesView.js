@@ -1,18 +1,24 @@
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
-import {RiDeleteBin2Line, RiEdit2Line} from 'react-icons/ri'
+import { RiDeleteBin2Line, RiEdit2Line } from 'react-icons/ri'
 
 const AllEmployeesView = ({ employees, deleteEmployee }) => {
 
   if (!employees.length) {
 
     return (
-      <div>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '6rem',
+        flexDirection: 'column'
+      }}>
         <h2>There are no employees.</h2>
         <div className="edit">
           <Link to={`/newemployee`}>
             <button>
-              Add
+              Add Employee
             </button>
           </Link>
         </div>
@@ -51,18 +57,27 @@ const AllEmployeesView = ({ employees, deleteEmployee }) => {
                   <td>{employee.last_name}</td>
                   <td>{employee.department}</td>
                   <td>
-                    <button 
-                      style={{ backgroundColor: 'red', width: '3rem', padding: '3px', borderRadius: '5px' }}
-                      onClick={() => deleteEmployee(employee.id)}>
-                      <RiDeleteBin2Line size={20}/>
-                    </button>
-
-                    <Link className="link" to={`/employees/${employee.id}`}>
+                    <div className="action-button-wrap">
                       <button
-                        style={{ backgroundColor: 'royalblue', width: '3rem', padding: '3px', borderRadius: '5px' }}>
-                        <RiEdit2Line size={20}/>
+                        onClick={() => deleteEmployee(employee.id)}
+                        className="delete-button"
+                      >
+                        <RiDeleteBin2Line size={20} />
                       </button>
+
+                      <Link className="link" to={`/employees/${employee.id}`}>
+                        <button
+                          style={{
+                            backgroundColor: '#0818A8',
+                            width: '3rem',
+                            padding: '3px',
+                            borderRadius: '5px'
+                          }}
+                        >
+                          <RiEdit2Line size={20} />
+                        </button>
                       </Link>
+                    </div>
                   </td>
                 </tr>
               )
