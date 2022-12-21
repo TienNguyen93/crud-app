@@ -95,6 +95,7 @@ const TasksView = ({ tasks, deleteTask }) => {
           </button>
         </Link>
       </div>
+      
     </div>
   )
 }
