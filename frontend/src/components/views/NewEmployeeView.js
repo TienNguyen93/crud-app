@@ -17,14 +17,26 @@ const NewEmployeeView = (props) => {
           <div>
             <div className="input-wrapper">
               <label className="edit-form-label">First Name: </label>
-              <input type="text" name="first_name" onChange={(e) => handleChange(e)} />
+              <input 
+              type="text" 
+              name="first_name" 
+              required
+              minLength={2}
+              maxLength={30}
+              onChange={(e) => handleChange(e)} />
             </div>
 
             <br />
 
             <div className="input-wrapper">
               <label className="edit-form-label">Last Name: </label>
-              <input type="text" name="last_name" onChange={(e) => handleChange(e)} />
+              <input 
+              type="text" 
+              name="last_name" 
+              required
+              minLength={2}
+              maxLength={30}
+              onChange={(e) => handleChange(e)} />
             </div>
 
             <br />
@@ -32,7 +44,13 @@ const NewEmployeeView = (props) => {
 
             <div className="input-wrapper">
               <label className="edit-form-label">Department: </label>
-              <input type="text" name="department" onChange={(e) => handleChange(e)} />
+              <input 
+              type="text" 
+              name="department" 
+              required='required'
+              minLength={5}
+              maxLength={40}
+              onChange={(e) => handleChange(e)} />
             </div>
 
             <br />
