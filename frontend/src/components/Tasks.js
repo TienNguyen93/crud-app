@@ -10,10 +10,8 @@ class Tasks extends Component {
 
   render() {
     return (
-      <div>
-        <TasksView tasks={this.props.allTasks}
-        deleteTask = {this.props.deleteTask}/>
-      </div>
+      <TasksView tasks={this.props.allTasks}
+        deleteTask={this.props.deleteTask} />
     )
   }
 }

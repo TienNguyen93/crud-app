@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
 import { RiDeleteBin2Line } from 'react-icons/ri'
 
-const EmployeeView = ({ employee, deleteTask }) => {
+const EmployeeView = (props) => {
+
+  const { id, fetchEmployee, employee, deleteEmployeeTask } = props
   const navigate = useHistory()
+
   if (!employee.tasks.length) {
     return (
       <div style={{
@@ -23,8 +26,15 @@ const EmployeeView = ({ employee, deleteTask }) => {
       </div>
     )
   }
+
   const clickEdit = () => {
     navigate.push(`/editemployee/${employee.id}`)
+  }
+
+  const clickDelete = async (task) => {
+    task.employeeId = null
+    await deleteEmployeeTask(task)
+    await fetchEmployee(id)
   }
 
   return (
@@ -48,12 +58,12 @@ const EmployeeView = ({ employee, deleteTask }) => {
           </tbody>
         </table>
       </div>
+
       <h1 style={{ textAlign: 'center' }}>Tasks</h1>
       <div className="single-task">
         <table>
           <tbody>
             <tr>
-            <th>ID</th>
               <th>Task Description</th>
               <th>Priority Level</th>
               <th>Status</th>
@@ -63,26 +73,25 @@ const EmployeeView = ({ employee, deleteTask }) => {
             {employee.tasks.map(task => {
               return (
                 <tr key={task.id}>
-                  <td>{task.id}</td>
+
                   <td>
                     <Link className="link" to={`/tasks/${task.id}`}>
                       {task.description}
                     </Link>
                   </td>
-
                   <td>{task.priority_level}</td>
                   <td>{task.completion_status}</td>
-                    <td>
-                      <button className="delete-button"
-                        onClick={() => deleteTask(task.id)}
-                      >
-                        <RiDeleteBin2Line size={20} />
-                      </button>
-                    </td>
-                  </tr>
+                  <td>
+                    <button className="delete-button"
+                      onClick={() => clickDelete(task)}>
+                      <RiDeleteBin2Line size={20} />
+                    </button>
+                  </td>
+
+                </tr>
               )
             })}
-            
+
           </tbody>
         </table>
       </div>
@@ -91,14 +100,13 @@ const EmployeeView = ({ employee, deleteTask }) => {
         <button onClick={clickEdit}>
           Edit Employee
         </button>
-      </div>
-      <div className="buttons-wrap">
         <Link to={`/newtask`}>
           <button>
             Add New Task
           </button>
         </Link>
       </div>
+
     </div>
   )
 }
