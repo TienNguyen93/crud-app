@@ -18,15 +18,15 @@
   * [x] see a list of all employees in the database
   * [x] see an informative message if no employees exist
   * [x] add a new employee
-    * [ ] with a validated form displaying real-time error messages
+    * [x] with a validated form displaying real-time error messages
 
 * [x] can navigate to any single employee’s view, and
   * [x] see details about a single employee, including tasks assigned (if any) 
-  * [ ] see an informative message if no tasks belong to that employee
+  * [x] see an informative message if no tasks belong to that employee
   * [x] can navigate to single task view (see below)
   * [x] delete the employee 
-  * [ ] edit employee information (including adding/removing tasks)
-    * [ ] with a validated form displaying real-time error messages
+  * [x] edit employee information (including adding/removing tasks)
+    * [x] with a validated form displaying real-time error messages
 
 * [x] can navigate to all tasks view, and
   * [x] see a list of all tasks in the database
@@ -48,8 +48,10 @@
  |`GET` |/employees | query all employees |
  |`GET` |/employees/:id | query employee by id |
  |`POST` |/newemployee | add new employee |
+ |`PUT` |/editemployee/:id | update employee information by id |
  |`GET` |/tasks | query all tasks |
  |`GET` |/tasks/:id | query task by id |
+ |`POST` |/newtask | add new task |
  |`PUT` |/edittask/:id | update task information by id |
      
 ## Assignment 3 Demo
