@@ -1,6 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchEmployeeThunk, fetchAllTasksThunk, deleteTaskThunk } from "../store/thunks"
+import { fetchEmployeeThunk, editTaskThunk } from "../store/thunks"
 import EmployeeView from "./views/EmployeeView";
 
 class Employee extends Component {
@@ -10,31 +10,27 @@ class Employee extends Component {
   }
 
   render() {
-    console.log('employee in container', this.props.employee)
     return (
-      <div>
-      <EmployeeView employee = {this.props.employee}
-        tasks = {this.props.allTasks}
-        deleteTask = {this.props.deleteTask} />
-        </div>
+      <EmployeeView employee={this.props.employee}
+        deleteEmployeeTask={this.props.deleteEmployeeTask}
+        fetchEmployee={this.props.fetchEmployee}
+        id={this.props.match.params.id} />
     )
   }
 }
 
-// map state to props
+// Map state to props
 const mapState = (state) => {
   return {
     employee: state.employee,
-    allTasks: state.allTasks
   }
 }
 
-// map dispatch to props
+// Map dispatch to props
 const mapDispatch = (dispatch) => {
   return {
     fetchEmployee: (id) => dispatch(fetchEmployeeThunk(id)),
-    fetchAllTasks: () => dispatch(fetchAllTasksThunk()),
-    deleteTask: (taskId) => dispatch(deleteTaskThunk(taskId)),
+    deleteEmployeeTask: (taskId) => dispatch(editTaskThunk(taskId)),
   }
 }
 
