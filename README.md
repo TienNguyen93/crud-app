@@ -1,5 +1,7 @@
 # Employee Management System
 
+## Team members: Tien Nguyen, Celeste Urena, Huynh Thai, Kristina Delia
+
 ## Table of Contents
 1. [Product Spec](#Product-Spec)
 2. [API Endpoints](#API-Endpoints)
