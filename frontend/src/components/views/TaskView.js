@@ -15,9 +15,9 @@ const TaskView = ({ task }) => {
       <NavBar />
       <div className="single-task">
         <div className="header">
-          <h1 style={{ textAlign: 'center' }}>Single task view</h1>
+          <h1 style={{ textAlign: 'center' }}>Single Task View</h1>
           <div className="notice">
-            <h4>Click on Assigned Employee Name for more information?</h4>
+            <h4>Click on Assigned Employee Name for more information</h4>
           </div>
         </div>
         <div>
@@ -44,8 +44,8 @@ const TaskView = ({ task }) => {
             </tbody>
           </table>
         </div>
-
       </div>
+      
       <div className="buttons-wrap">
         <div className="edit">
           <button onClick={clickEdit}>

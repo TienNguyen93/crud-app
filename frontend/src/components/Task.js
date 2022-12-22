@@ -12,7 +12,7 @@ class Task extends Component {
   render() {
     console.log('task in container', this.props.task)
     return (
-      <TaskView task={this.props.task}/>
+      <TaskView task={this.props.task} />
     )
   }
 }

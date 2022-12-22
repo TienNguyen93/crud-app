@@ -40,27 +40,9 @@ const EmployeeView = (props) => {
   return (
     <div>
       <NavBar />
-      <h1 style={{ textAlign: 'center' }}>Single employee view</h1>
       <div className="single-task">
-        <table>
-          <tbody>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Department</th>
-            </tr>
-
-            <tr>
-              <td>{employee.first_name}</td>
-              <td>{employee.last_name}</td>
-              <td>{employee.department}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h1 style={{ textAlign: 'center' }}>Tasks</h1>
-      <div className="single-task">
+        <h1>{employee.first_name}  {employee.last_name} ({employee.department})</h1>
+        <h1 style={{ textAlign: 'center' }}>Tasks</h1>
         <table>
           <tbody>
             <tr>
@@ -97,16 +79,17 @@ const EmployeeView = (props) => {
       </div>
 
       <div className="buttons-wrap">
-        <button onClick={clickEdit}>
-          Edit Employee
-        </button>
-        <Link to={`/employees/${id}/newtask`}>
-          <button>
-            Add New Task
+        <div className="edit">
+          <button onClick={clickEdit}>
+            Edit Employee
           </button>
-        </Link>
+          <Link to={`/employees/${id}/newtask`}>
+            <button>
+              Add New Task
+            </button>
+          </Link>
+        </div>
       </div>
-
     </div>
   )
 }

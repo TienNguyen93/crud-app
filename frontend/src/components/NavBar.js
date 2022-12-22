@@ -5,9 +5,9 @@ const NavBar = () => {
   return (
     <div className="nav-wrap">
       <nav>
-        <ul style={{listStyleType: 'none'}}>
+        <ul style={{ listStyleType: 'none' }}>
           <li>
-            <Link to="/">Home page</Link>
+            <Link to="/">Homepage</Link>
           </li>
           <li>
             <Link to="/tasks">View All Tasks</Link>

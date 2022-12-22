@@ -12,9 +12,9 @@ class Employees extends Component {
   render() {
     return (
       <div>
-        <AllEmployeesView 
-        employees={this.props.allEmployees}
-        deleteEmployee = {this.props.deleteEmployee} />
+        <AllEmployeesView
+          employees={this.props.allEmployees}
+          deleteEmployee={this.props.deleteEmployee} />
       </div>
     );
   }

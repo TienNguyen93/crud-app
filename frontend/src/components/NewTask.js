@@ -65,7 +65,7 @@ class NewTask extends Component {
       <NewTaskView
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-      />    
+      />
     )
   }
 }

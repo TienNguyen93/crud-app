@@ -18,7 +18,7 @@ class NewEmployee extends Component {
       error: ""
     }
   }
-  
+
   componentDidMount() {
     this.setState({
       first_name: this.props.first_name,
@@ -35,8 +35,8 @@ class NewEmployee extends Component {
 
   handleSubmit = async event => {
     event.preventDefault()
-    if ( this.state.title === ""){
-      this.setState({error: "field is required"});
+    if (this.state.title === "") {
+      this.setState({ error: "field is required" });
       return
     }
     let employee = {
@@ -64,24 +64,24 @@ class NewEmployee extends Component {
   }
 
   render() {
-    
+
     if (this.state.redirect) {
       return (<Redirect to={`/employees`} />)
     }
 
-    return (     
+    return (
       <NewEmployeeView
-      handleChange={this.handleChange}
-      handleSubmit={this.handleSubmit}
-      error={this.state.error}
-    />
-  )
-}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        error={this.state.error}
+      />
+    )
+  }
 }
 
 const mapDispatch = (dispatch) => {
   return ({
-  addEmployee: (employee) => dispatch(addEmployeeThunk(employee))
+    addEmployee: (employee) => dispatch(addEmployeeThunk(employee))
   })
 }
 

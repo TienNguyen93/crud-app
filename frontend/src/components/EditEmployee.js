@@ -70,7 +70,6 @@ class EditEmployee extends Component {
     }
 
     return (
-
       <EditEmployeeView
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
