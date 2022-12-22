@@ -69,14 +69,14 @@ const EditTaskView = (props) => {
             </div>
             <br />
 
-            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <button type="submit">
                 Apply Changes
               </button>
             </div>
 
           </div>
-        </form> 
+        </form>
         {error !== "" && <p>{error}</p>}
       </div>
     </div>

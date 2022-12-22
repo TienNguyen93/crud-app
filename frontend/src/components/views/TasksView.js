@@ -33,7 +33,7 @@ const TasksView = ({ tasks, deleteTask }) => {
         <div className="header">
           <h1>Manage Tasks</h1>
           <div className="notice">
-            <h4>Click on Task description to edit</h4>
+            <h4>Click on task description to edit.</h4>
           </div>
         </div>
         <div>

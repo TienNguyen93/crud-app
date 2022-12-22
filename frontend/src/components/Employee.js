@@ -11,7 +11,7 @@ class Employee extends Component {
 
   render() {
     return (
-      <EmployeeView 
+      <EmployeeView
         employee={this.props.employee}
         deleteEmployeeTask={this.props.deleteEmployeeTask}
         fetchEmployee={this.props.fetchEmployee}

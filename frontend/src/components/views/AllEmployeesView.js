@@ -33,7 +33,7 @@ const AllEmployeesView = ({ employees, deleteEmployee }) => {
         <div className="header">
           <h1>Manage Employees</h1>
           <div className="notice">
-            <h4>Click on Employee First Name to edit</h4>
+            <h4>Click on employee first name to edit.</h4>
           </div>
         </div>
         <table>
