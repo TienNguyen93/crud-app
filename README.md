@@ -2,10 +2,13 @@
 
 ## Team members: Tien Nguyen, Celeste Urena, Huynh Thai, Kristina Delia
 
+[View Backend Repository](https://github.com/TienNguyen93/ems-backend)
+
 ## Table of Contents
 1. [Product Spec](#Product-Spec)
 2. [API Endpoints](#API-Endpoints)
 3. [Assignment 3 Demo](#Assignment-3-Demo)
+4. [Final Demo](#Final-Demo)
 4. [Wireframes](#Wireframes) 
 
 ## Product Spec
@@ -57,6 +60,10 @@
 ## Assignment 3 Demo
 
 https://user-images.githubusercontent.com/57969388/207213263-ee498370-1e2c-4d2d-8454-9e9d842a1188.mov
+
+## Final Demo
+
+https://user-images.githubusercontent.com/57969388/209046046-f70d098c-b2fe-4cf9-a15c-e54e0cd1349e.mov
 
 ## Wireframes
 ![Homepage](https://user-images.githubusercontent.com/57969388/205528044-939aa72c-7952-4c1c-a719-f14bedb76b80.png)
