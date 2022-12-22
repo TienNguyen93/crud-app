@@ -100,7 +100,7 @@ const EmployeeView = (props) => {
         <button onClick={clickEdit}>
           Edit Employee
         </button>
-        <Link to={`/newtask`}>
+        <Link to={`/employees/${id}/newtask`}>
           <button>
             Add New Task
           </button>
