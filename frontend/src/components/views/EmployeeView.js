@@ -18,7 +18,7 @@ const EmployeeView = (props) => {
         flexDirection: 'column'
       }}>
         <h2>Employee has no tasks</h2>
-        <Link to={`/newtask`}>
+        <Link to={`employee.id/newtask`}>
           <button>
             Add Task
           </button>
