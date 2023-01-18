@@ -7,8 +7,7 @@
 ## Table of Contents
 1. [Product Spec](#Product-Spec)
 2. [API Endpoints](#API-Endpoints)
-3. [Assignment 3 Demo](#Assignment-3-Demo)
-4. [Final Demo](#Final-Demo)
+3. [Final Demo](#Final-Demo)
 4. [Wireframes](#Wireframes) 
 
 ## Product Spec
@@ -56,10 +55,6 @@
  |`GET` |/tasks/:id | query task by id |
  |`POST` |/newtask | add new task |
  |`PUT` |/edittask/:id | update task information by id |
-     
-## Assignment 3 Demo
-
-https://user-images.githubusercontent.com/57969388/207213263-ee498370-1e2c-4d2d-8454-9e9d842a1188.mov
 
 ## Final Demo
 
